@@ -8,195 +8,187 @@
 <style>
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
 
 body{
-    width:100%;
-    height:100vh;
-    overflow:hidden;
-    font-family:Georgia, serif;
+height:100vh;
+overflow:hidden;
+font-family:Georgia,serif;
 }
 
 .background{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:url('IMG_20260620_211807.jpg') center center/cover no-repeat;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url('IMG_20260620_211807.jpg') center center/cover no-repeat;
 }
 
 .overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.55);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(
+to top,
+rgba(0,0,0,.75),
+rgba(0,0,0,.15),
+rgba(0,0,0,.05)
+);
 
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-    padding:20px;
+display:flex;
+flex-direction:column;
+justify-content:flex-end;
+align-items:center;
+padding:30px;
+text-align:center;
 }
 
 .happy{
-    color:white;
-    font-size:28px;
-    letter-spacing:12px;
-    margin-bottom:10px;
+color:white;
+font-size:22px;
+letter-spacing:10px;
+margin-bottom:5px;
 }
 
 .birthday{
-    color:#d4af37;
-    font-size:75px;
-    font-family:cursive;
-    text-shadow:
-        0 0 10px #d4af37,
-        0 0 20px #d4af37,
-        0 0 40px #d4af37;
-}
-
-.subtitle{
-    color:white;
-    font-size:22px;
-    margin-top:10px;
-    margin-bottom:35px;
-    font-style:italic;
+color:#FFD700;
+font-size:70px;
+font-family:cursive;
+text-shadow:
+0 0 10px #FFD700,
+0 0 20px #FFD700,
+0 0 40px #FFD700;
+margin-bottom:20px;
 }
 
 .message{
-    max-width:800px;
-    color:white;
-    font-size:22px;
-    line-height:1.8;
-    background:rgba(0,0,0,0.35);
-    padding:25px;
-    border-radius:20px;
-    backdrop-filter:blur(4px);
-}
-
-.gold{
-    color:#d4af37;
+max-width:750px;
+color:white;
+font-size:20px;
+line-height:1.8;
+margin-bottom:20px;
+text-shadow:0 0 10px black;
 }
 
 .music-btn{
-    margin-top:25px;
-    background:#d4af37;
-    color:black;
-    border:none;
-    padding:12px 24px;
-    border-radius:30px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
+background:#FFD700;
+color:black;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+margin-bottom:15px;
 }
 
-.star{
-    position:absolute;
-    color:#d4af37;
-    animation:twinkle 3s infinite alternate;
+.firework{
+position:absolute;
+font-size:28px;
+animation:fly 6s linear infinite;
+opacity:.8;
 }
 
-@keyframes twinkle{
-    from{opacity:.3;}
-    to{
-        opacity:1;
-        text-shadow:0 0 10px #d4af37;
-    }
+@keyframes fly{
+
+0%{
+transform:translateY(100vh) scale(.5);
+opacity:0;
+}
+
+20%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-20vh) scale(1.5);
+opacity:0;
+}
+
 }
 
 @media(max-width:768px){
 
-    .birthday{
-        font-size:50px;
-    }
+.birthday{
+font-size:50px;
+}
 
-    .message{
-        font-size:18px;
-    }
+.message{
+font-size:16px;
+}
 
-    .subtitle{
-        font-size:18px;
-    }
-
-    .happy{
-        font-size:20px;
-        letter-spacing:8px;
-    }
 }
 
 </style>
 </head>
+
 <body>
 
 <div class="background"></div>
 
 <div class="overlay">
 
-    <div class="happy">H A P P Y</div>
+<div class="happy">
+H A P P Y
+</div>
 
-    <div class="birthday">Birthday</div>
+<div class="birthday">
+Birthday
+</div>
 
-    <div class="subtitle">Wishing You The Best</div>
+<div class="message">
 
-    <div class="message">
+On your special day,<br><br>
 
-        <span class="gold">On your special day,</span>
-        <br><br>
+I wish you a successful career,
+a joyful heart,
+a peaceful mind,
+and a future brighter than you ever imagined.<br><br>
 
-        I wish you a successful career,
-        a joyful heart,
-        a peaceful mind,
-        and a future brighter than you ever imagined.
+May every dream become reality,
+every effort bring success,
+and every day bring happiness,
+good health and unforgettable memories.
 
-        <br><br>
+</div>
 
-        May every dream become reality,
-        every effort bring success,
-        and every day bring happiness,
-        good health and unforgettable memories.
-
-        <br><br>
-
-        <span class="gold">✨ Happy Birthday ✨</span>
-
-    </div>
-
-    <button class="music-btn" onclick="playMusic()">
-        🎵 Play Music
-    </button>
+<button class="music-btn" onclick="playMusic()">
+🎵 Play Song
+</button>
 
 </div>
 
 <audio id="music" loop>
-    <source src="birthday-song.mp3" type="audio/mpeg">
+<source src="AUD-20260620-WA0000.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
 function playMusic(){
-    document.getElementById("music").play();
+document.getElementById("music").play();
 }
 
-for(let i=0;i<20;i++){
+const fireworks=["🎆","🎇","✨"];
 
-    let star=document.createElement("div");
+for(let i=0;i<25;i++){
 
-    star.className="star";
-    star.innerHTML="✦";
+let fw=document.createElement("div");
 
-    star.style.left=Math.random()*100+"vw";
-    star.style.top=Math.random()*100+"vh";
-    star.style.fontSize=(Math.random()*8+8)+"px";
+fw.className="firework";
 
-    document.body.appendChild(star);
+fw.innerHTML=fireworks[Math.floor(Math.random()*fireworks.length)];
+
+fw.style.left=Math.random()*100+"vw";
+fw.style.animationDuration=(Math.random()*5+4)+"s";
+fw.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(fw);
 }
 
 </script>
