@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> ✨ Happy Birthday ✨</title>
+<title>Happy Birthday</title>
 
 <style>
 
@@ -14,24 +14,23 @@
 }
 
 body{
-    overflow:hidden;
-    font-family:Georgia,serif;
-}
-
-.hero{
-    position:relative;
     width:100%;
     height:100vh;
+    overflow:hidden;
+    font-family:Georgia, serif;
 }
 
-.hero img{
+.background{
+    position:fixed;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    object-fit:cover;
+    background:url('IMG_20260620_211807.jpg') center center/cover no-repeat;
 }
 
 .overlay{
-    position:absolute;
+    position:fixed;
     top:0;
     left:0;
     width:100%;
@@ -49,44 +48,37 @@ body{
 
 .happy{
     color:white;
-    letter-spacing:15px;
-    font-size:24px;
+    font-size:28px;
+    letter-spacing:12px;
     margin-bottom:10px;
 }
 
 .birthday{
     color:#d4af37;
-    font-size:80px;
+    font-size:75px;
     font-family:cursive;
-
     text-shadow:
-    0 0 10px #d4af37,
-    0 0 25px #d4af37,
-    0 0 40px #d4af37;
-
-    margin-bottom:15px;
+        0 0 10px #d4af37,
+        0 0 20px #d4af37,
+        0 0 40px #d4af37;
 }
 
 .subtitle{
     color:white;
-    font-size:24px;
+    font-size:22px;
+    margin-top:10px;
+    margin-bottom:35px;
     font-style:italic;
-    margin-bottom:40px;
 }
 
 .message{
     max-width:800px;
-
     color:white;
     font-size:22px;
     line-height:1.8;
-
-    background:rgba(0,0,0,.35);
-
+    background:rgba(0,0,0,0.35);
     padding:25px;
-
     border-radius:20px;
-
     backdrop-filter:blur(4px);
 }
 
@@ -94,18 +86,16 @@ body{
     color:#d4af37;
 }
 
-.tap{
-    position:absolute;
-    bottom:25px;
-    color:white;
+.music-btn{
+    margin-top:25px;
+    background:#d4af37;
+    color:black;
+    border:none;
+    padding:12px 24px;
+    border-radius:30px;
     font-size:16px;
-    animation:blink 1.5s infinite;
-}
-
-@keyframes blink{
-    50%{
-        opacity:.4;
-    }
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .star{
@@ -115,9 +105,7 @@ body{
 }
 
 @keyframes twinkle{
-    from{
-        opacity:.3;
-    }
+    from{opacity:.3;}
     to{
         opacity:1;
         text-shadow:0 0 10px #d4af37;
@@ -127,7 +115,7 @@ body{
 @media(max-width:768px){
 
     .birthday{
-        font-size:52px;
+        font-size:50px;
     }
 
     .message{
@@ -135,86 +123,73 @@ body{
     }
 
     .subtitle{
-        font-size:20px;
+        font-size:18px;
     }
 
+    .happy{
+        font-size:20px;
+        letter-spacing:8px;
+    }
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="hero">
-
-<img src="IMG_20260620_211807.jpg" alt="Birthday Photo">
+<div class="background"></div>
 
 <div class="overlay">
 
-<div class="happy">
-H A P P Y
-</div>
+    <div class="happy">H A P P Y</div>
 
-<div class="birthday">
-Birthday
-</div>
+    <div class="birthday">Birthday</div>
 
-<div class="subtitle">
-Wishing You The Best
-</div>
+    <div class="subtitle">Wishing You The Best</div>
 
-<div class="message">
+    <div class="message">
 
-<span class="gold">On your special day,</span>
+        <span class="gold">On your special day,</span>
+        <br><br>
 
-<br><br>
+        I wish you a successful career,
+        a joyful heart,
+        a peaceful mind,
+        and a future brighter than you ever imagined.
 
-I wish you a successful career,
-a joyful heart,
-a peaceful mind,
-and a future brighter than you ever imagined.
+        <br><br>
 
-<br><br>
+        May every dream become reality,
+        every effort bring success,
+        and every day bring happiness,
+        good health and unforgettable memories.
 
-May every dream become reality,
-every effort bring success,
-and every day bring happiness,
-good health and unforgettable memories.
+        <br><br>
 
-<br><br>
+        <span class="gold">✨ Happy Birthday ✨</span>
 
-<span class="gold">✨ Happy Birthday ✨</span>
+    </div>
 
-</div>
-
-<div class="tap">
-🎵 Tap Anywhere To Play Music
-</div>
+    <button class="music-btn" onclick="playMusic()">
+        🎵 Play Music
+    </button>
 
 </div>
 
-</div>
-
-<audio id="bgMusic" loop>
-<source src="Lokada_Sukavella_Ooo😍__Whatsapp_Status__Suraj_K_M__Kannada_Old_Love_💕_Song💕💕(128k).mp3" type="audio/mpeg">
+<audio id="music" loop>
+    <source src="birthday-song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 
-document.body.addEventListener('click',function(){
+function playMusic(){
+    document.getElementById("music").play();
+}
 
-    const music=document.getElementById('bgMusic');
-
-    music.play();
-
-},{once:true});
-
-for(let i=0;i<25;i++){
+for(let i=0;i<20;i++){
 
     let star=document.createElement("div");
 
     star.className="star";
-
     star.innerHTML="✦";
 
     star.style.left=Math.random()*100+"vw";
