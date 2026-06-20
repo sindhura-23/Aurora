@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
+<title>Happy Birthday</title>
 
 <style>
 
@@ -20,7 +20,7 @@ font-family:Georgia,serif;
 background:black;
 }
 
-.background{
+.bg{
 position:fixed;
 top:0;
 left:0;
@@ -37,89 +37,142 @@ width:100%;
 height:100%;
 background:linear-gradient(
 to top,
-rgba(0,0,0,.85),
-rgba(0,0,0,.25),
-rgba(0,0,0,.15)
+rgba(0,0,0,.45),
+rgba(0,0,0,.15),
+rgba(0,0,0,.05)
 );
-display:flex;
-flex-direction:column;
-justify-content:flex-end;
-align-items:center;
+}
+
+.frame{
+position:fixed;
+top:10px;
+left:10px;
+right:10px;
+bottom:10px;
+border:2px solid #FFD700;
+border-radius:25px;
+box-shadow:0 0 20px #FFD700;
+pointer-events:none;
+}
+
+.content{
+position:absolute;
+bottom:30px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
 text-align:center;
-padding:30px;
+z-index:10;
 }
 
 .happy{
-color:white;
-font-size:24px;
-letter-spacing:12px;
-margin-bottom:5px;
+font-size:28px;
 font-weight:bold;
+letter-spacing:10px;
+color:white;
+text-shadow:
+0 2px 0 #999,
+0 4px 0 #888,
+0 6px 0 #777,
+0 0 20px white;
 }
 
 .birthday{
-font-size:75px;
-color:#FFD700;
-font-family:cursive;
+font-size:80px;
+font-weight:bold;
+background:linear-gradient(
+180deg,
+#fff8c6,
+#ffd700,
+#ffb700,
+#b8860b
+);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
 text-shadow:
 0 0 10px #FFD700,
-0 0 25px #FFD700,
+0 0 20px #FFD700,
 0 0 50px #FFD700;
-margin-bottom:20px;
 }
 
 .message{
-max-width:800px;
+margin-top:15px;
 color:white;
 font-size:20px;
 line-height:1.8;
 text-shadow:0 0 10px black;
-margin-bottom:20px;
+max-width:850px;
+margin-left:auto;
+margin-right:auto;
 }
 
 .music-btn{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
 background:#FFD700;
 color:black;
-border:none;
-padding:12px 25px;
-border-radius:30px;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
-margin-bottom:10px;
+box-shadow:0 0 15px #FFD700;
 }
 
-/* REAL FIREWORKS */
+.sparkle{
+position:fixed;
+color:#FFD700;
+font-size:18px;
+opacity:.5;
+pointer-events:none;
+animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+0%{
+transform:translateY(100vh);
+opacity:0;
+}
+20%{
+opacity:.4;
+}
+80%{
+opacity:.8;
+}
+100%{
+transform:translateY(-120px);
+opacity:0;
+}
+}
 
 .firework{
 position:absolute;
-width:4px;
-height:4px;
 border-radius:50%;
-background:#FFD700;
-animation:explode 2.5s linear infinite;
+pointer-events:none;
+animation:burst 2s linear forwards;
 }
 
-@keyframes explode{
-
+@keyframes burst{
 0%{
 transform:translate(0,0) scale(0);
 opacity:1;
 }
-
 100%{
-transform:
-translate(var(--x),var(--y))
-scale(1.5);
+transform:translate(var(--x),var(--y)) scale(1.5);
 opacity:0;
 }
-
 }
 
 @media(max-width:768px){
 
+.happy{
+font-size:20px;
+}
+
 .birthday{
-font-size:48px;
+font-size:50px;
 }
 
 .message{
@@ -133,24 +186,19 @@ font-size:16px;
 
 <body>
 
-<div class="background"></div>
+<div class="bg"></div>
+<div class="overlay"></div>
+<div class="frame"></div>
 
-<div class="overlay">
+<div class="content">
 
-<div class="happy">
-H A P P Y
-</div>
+<div class="happy">🎉 HAPPY 🎉</div>
 
-<div class="birthday">
-Birthday
-</div>
+<div class="birthday">BIRTHDAY</div>
 
 <div class="message">
 
-  <br><br>
-On your special day,
-
-
+On your special day,<br><br>
 
 I wish you a successful career,
 a joyful heart,
@@ -159,14 +207,14 @@ and a future brighter than you ever imagined.
 
 <br><br>
 
-🌸May every dream become reality,
+May every dream become reality,
 every effort bring success,
 and every day bring happiness,
-good health and unforgettable memories🌸.
+good health and unforgettable memories.
 
 <br><br>
 
-✨ Happy Birthday🥂🎊 ✨
+✨ Happy Birthday ✨
 
 </div>
 
@@ -184,26 +232,43 @@ good health and unforgettable memories🌸.
 
 function playMusic(){
 document.getElementById("music").play();
+launchFireworks();
 }
 
-// Fireworks
+function launchFireworks(){
 
-for(let i=0;i<15;i++){
+setInterval(()=>{
 
-let centerX=Math.random()*window.innerWidth;
-let centerY=Math.random()*window.innerHeight*0.7;
+let cx=Math.random()*window.innerWidth;
+let cy=Math.random()*window.innerHeight*0.5;
 
-for(let j=0;j<25;j++){
+for(let i=0;i<40;i++){
 
 let p=document.createElement("div");
 
 p.className="firework";
 
-p.style.left=centerX+"px";
-p.style.top=centerY+"px";
+let size=Math.random()*6+3;
 
-let angle=(Math.PI*2*j)/25;
-let distance=80+Math.random()*60;
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+const colors=[
+"#FFD700",
+"#FF4444",
+"#00FFFF",
+"#FFFFFF",
+"#FF66FF"
+];
+
+p.style.background=
+colors[Math.floor(Math.random()*colors.length)];
+
+p.style.left=cx+"px";
+p.style.top=cy+"px";
+
+let angle=(Math.PI*2*i)/40;
+let distance=80+Math.random()*100;
 
 p.style.setProperty('--x',
 Math.cos(angle)*distance+'px');
@@ -211,10 +276,31 @@ Math.cos(angle)*distance+'px');
 p.style.setProperty('--y',
 Math.sin(angle)*distance+'px');
 
-p.style.animationDelay=Math.random()*2+'s';
-
 document.body.appendChild(p);
+
+setTimeout(()=>{
+p.remove();
+},2000);
+
 }
+
+},1200);
+
+}
+
+for(let i=0;i<12;i++){
+
+let sparkle=document.createElement("div");
+
+sparkle.className="sparkle";
+sparkle.innerHTML="✨";
+
+sparkle.style.left=Math.random()*100+"vw";
+sparkle.style.animationDuration=(Math.random()*8+12)+"s";
+sparkle.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(sparkle);
+
 }
 
 </script>
