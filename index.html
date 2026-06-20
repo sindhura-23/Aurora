@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+<title></title>
 
 <style>
 
@@ -17,6 +17,7 @@ body{
 height:100vh;
 overflow:hidden;
 font-family:Georgia,serif;
+background:black;
 }
 
 .background{
@@ -36,44 +37,44 @@ width:100%;
 height:100%;
 background:linear-gradient(
 to top,
-rgba(0,0,0,.75),
-rgba(0,0,0,.15),
-rgba(0,0,0,.05)
+rgba(0,0,0,.85),
+rgba(0,0,0,.25),
+rgba(0,0,0,.15)
 );
-
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
 align-items:center;
-padding:30px;
 text-align:center;
+padding:30px;
 }
 
 .happy{
 color:white;
-font-size:22px;
-letter-spacing:10px;
+font-size:24px;
+letter-spacing:12px;
 margin-bottom:5px;
+font-weight:bold;
 }
 
 .birthday{
+font-size:75px;
 color:#FFD700;
-font-size:70px;
 font-family:cursive;
 text-shadow:
 0 0 10px #FFD700,
-0 0 20px #FFD700,
-0 0 40px #FFD700;
+0 0 25px #FFD700,
+0 0 50px #FFD700;
 margin-bottom:20px;
 }
 
 .message{
-max-width:750px;
+max-width:800px;
 color:white;
 font-size:20px;
 line-height:1.8;
-margin-bottom:20px;
 text-shadow:0 0 10px black;
+margin-bottom:20px;
 }
 
 .music-btn{
@@ -85,29 +86,31 @@ border-radius:30px;
 font-size:18px;
 font-weight:bold;
 cursor:pointer;
-margin-bottom:15px;
+margin-bottom:10px;
 }
+
+/* REAL FIREWORKS */
 
 .firework{
 position:absolute;
-font-size:28px;
-animation:fly 6s linear infinite;
-opacity:.8;
+width:4px;
+height:4px;
+border-radius:50%;
+background:#FFD700;
+animation:explode 2.5s linear infinite;
 }
 
-@keyframes fly{
+@keyframes explode{
 
 0%{
-transform:translateY(100vh) scale(.5);
-opacity:0;
-}
-
-20%{
+transform:translate(0,0) scale(0);
 opacity:1;
 }
 
 100%{
-transform:translateY(-20vh) scale(1.5);
+transform:
+translate(var(--x),var(--y))
+scale(1.5);
 opacity:0;
 }
 
@@ -116,7 +119,7 @@ opacity:0;
 @media(max-width:768px){
 
 .birthday{
-font-size:50px;
+font-size:48px;
 }
 
 .message{
@@ -144,17 +147,25 @@ Birthday
 
 <div class="message">
 
-On your special day,<br><br>
+On your special day,
+
+<br><br>
 
 I wish you a successful career,
 a joyful heart,
 a peaceful mind,
-and a future brighter than you ever imagined.<br><br>
+and a future brighter than you ever imagined.
+
+<br><br>
 
 May every dream become reality,
 every effort bring success,
 and every day bring happiness,
 good health and unforgettable memories.
+
+<br><br>
+
+✨ Happy Birthday ✨
 
 </div>
 
@@ -174,21 +185,35 @@ function playMusic(){
 document.getElementById("music").play();
 }
 
-const fireworks=["🎆","🎇","✨"];
+// Fireworks
 
-for(let i=0;i<25;i++){
+for(let i=0;i<15;i++){
 
-let fw=document.createElement("div");
+let centerX=Math.random()*window.innerWidth;
+let centerY=Math.random()*window.innerHeight*0.7;
 
-fw.className="firework";
+for(let j=0;j<25;j++){
 
-fw.innerHTML=fireworks[Math.floor(Math.random()*fireworks.length)];
+let p=document.createElement("div");
 
-fw.style.left=Math.random()*100+"vw";
-fw.style.animationDuration=(Math.random()*5+4)+"s";
-fw.style.animationDelay=Math.random()*5+"s";
+p.className="firework";
 
-document.body.appendChild(fw);
+p.style.left=centerX+"px";
+p.style.top=centerY+"px";
+
+let angle=(Math.PI*2*j)/25;
+let distance=80+Math.random()*60;
+
+p.style.setProperty('--x',
+Math.cos(angle)*distance+'px');
+
+p.style.setProperty('--y',
+Math.sin(angle)*distance+'px');
+
+p.style.animationDelay=Math.random()*2+'s';
+
+document.body.appendChild(p);
+}
 }
 
 </script>
