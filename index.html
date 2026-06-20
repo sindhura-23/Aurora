@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday</title>
+<title> ✨ Happy Birthday ✨</title>
 
 <style>
 
@@ -14,132 +14,130 @@
 }
 
 body{
-    background:#000;
-    min-height:100vh;
+    overflow:hidden;
+    font-family:Georgia,serif;
+}
+
+.hero{
+    position:relative;
+    width:100%;
+    height:100vh;
+}
+
+.hero img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.overlay{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+
     display:flex;
+    flex-direction:column;
     justify-content:center;
     align-items:center;
-    font-family:Georgia, serif;
-    overflow:hidden;
-}
 
-.container{
-    position:relative;
-    width:95%;
-    max-width:900px;
-    background:#050505;
-    border-radius:25px;
-    padding:40px 20px;
     text-align:center;
-    box-shadow:0 0 40px rgba(255,215,0,.25);
+    padding:20px;
 }
 
-/* Decorative balloons */
-
-.balloon{
-    position:absolute;
-    font-size:60px;
-    opacity:.9;
-}
-
-.left1{left:10px;top:80px;}
-.left2{left:35px;top:250px;}
-.left3{left:15px;bottom:100px;}
-
-.right1{right:10px;top:80px;}
-.right2{right:35px;top:250px;}
-.right3{right:15px;bottom:100px;}
-
-/* Title */
-
-.title-small{
+.happy{
     color:white;
-    letter-spacing:10px;
-    font-size:22px;
+    letter-spacing:15px;
+    font-size:24px;
     margin-bottom:10px;
 }
 
-.title-big{
+.birthday{
     color:#d4af37;
-    font-size:70px;
+    font-size:80px;
     font-family:cursive;
+
     text-shadow:
-        0 0 10px #d4af37,
-        0 0 20px #d4af37,
-        0 0 35px #d4af37;
-    margin-bottom:25px;
+    0 0 10px #d4af37,
+    0 0 25px #d4af37,
+    0 0 40px #d4af37;
+
+    margin-bottom:15px;
 }
 
 .subtitle{
-    color:#d8d8d8;
+    color:white;
+    font-size:24px;
     font-style:italic;
-    margin-bottom:30px;
-    font-size:22px;
+    margin-bottom:40px;
 }
-
-/* Photo */
-
-.photo{
-    width:280px;
-    height:280px;
-    object-fit:cover;
-    border-radius:50%;
-    border:5px solid #d4af37;
-    box-shadow:
-        0 0 15px #d4af37,
-        0 0 35px rgba(212,175,55,.6);
-}
-
-/* Wish */
 
 .message{
-    margin-top:30px;
+    max-width:800px;
+
     color:white;
-    font-size:20px;
+    font-size:22px;
     line-height:1.8;
-    max-width:700px;
-    margin-left:auto;
-    margin-right:auto;
+
+    background:rgba(0,0,0,.35);
+
+    padding:25px;
+
+    border-radius:20px;
+
+    backdrop-filter:blur(4px);
 }
 
 .gold{
     color:#d4af37;
 }
 
-/* Tiny sparkle */
+.tap{
+    position:absolute;
+    bottom:25px;
+    color:white;
+    font-size:16px;
+    animation:blink 1.5s infinite;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.4;
+    }
+}
 
 .star{
     position:absolute;
     color:#d4af37;
-    animation:blink 2s infinite alternate;
+    animation:twinkle 3s infinite alternate;
 }
 
-@keyframes blink{
-    from{opacity:.3;}
+@keyframes twinkle{
+    from{
+        opacity:.3;
+    }
     to{
         opacity:1;
-        text-shadow:0 0 12px #d4af37;
+        text-shadow:0 0 10px #d4af37;
     }
 }
 
 @media(max-width:768px){
 
-    .title-big{
-        font-size:48px;
-    }
-
-    .photo{
-        width:220px;
-        height:220px;
+    .birthday{
+        font-size:52px;
     }
 
     .message{
-        font-size:17px;
+        font-size:18px;
     }
 
-    .balloon{
-        font-size:40px;
+    .subtitle{
+        font-size:20px;
     }
+
 }
 
 </style>
@@ -147,57 +145,81 @@ body{
 
 <body>
 
-<div class="container">
+<div class="hero">
 
-    <div class="balloon left1">🎈</div>
-    <div class="balloon left2">🎈</div>
-    <div class="balloon left3">🎈</div>
+<img src="IMG_20260620_211807.jpg" alt="Birthday Photo">
 
-    <div class="balloon right1">🎈</div>
-    <div class="balloon right2">🎈</div>
-    <div class="balloon right3">🎈</div>
+<div class="overlay">
 
-    <div class="title-small">HAPPY</div>
+<div class="happy">
+H A P P Y
+</div>
 
-    <div class="title-big">Birthday</div>
+<div class="birthday">
+Birthday
+</div>
 
-    <div class="subtitle">Wishing You The Best</div>
+<div class="subtitle">
+Wishing You The Best
+</div>
 
-    <img src="IMG_20260620_211807.jpg" class="photo">
+<div class="message">
 
-    <div class="message">
+<span class="gold">On your special day,</span>
 
-        <span class="gold">On your special day,</span><br><br>
+<br><br>
 
-        I wish you a successful career, a joyful heart,
-        a peaceful mind, and a future brighter than you
-        ever imagined.<br><br>
+I wish you a successful career,
+a joyful heart,
+a peaceful mind,
+and a future brighter than you ever imagined.
 
-        May every dream turn into reality,
-        every effort bring success,
-        and every day bring happiness,
-        good health and unforgettable memories.
+<br><br>
 
-        <br><br>
+May every dream become reality,
+every effort bring success,
+and every day bring happiness,
+good health and unforgettable memories.
 
-        <span class="gold">✨ Happy Birthday ✨</span>
+<br><br>
 
-    </div>
+<span class="gold">✨ Happy Birthday ✨</span>
 
 </div>
 
+<div class="tap">
+🎵 Tap Anywhere To Play Music
+</div>
+
+</div>
+
+</div>
+
+<audio id="bgMusic" loop>
+<source src="Lokada_Sukavella_Ooo😍__Whatsapp_Status__Suraj_K_M__Kannada_Old_Love_💕_Song💕💕(128k).mp3" type="audio/mpeg">
+</audio>
+
 <script>
 
-for(let i=0;i<30;i++){
+document.body.addEventListener('click',function(){
+
+    const music=document.getElementById('bgMusic');
+
+    music.play();
+
+},{once:true});
+
+for(let i=0;i<25;i++){
 
     let star=document.createElement("div");
 
     star.className="star";
+
     star.innerHTML="✦";
 
     star.style.left=Math.random()*100+"vw";
     star.style.top=Math.random()*100+"vh";
-    star.style.fontSize=(Math.random()*10+8)+"px";
+    star.style.fontSize=(Math.random()*8+8)+"px";
 
     document.body.appendChild(star);
 }
