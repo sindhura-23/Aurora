@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday ✨</title>
+<title>Happy Birthday</title>
 
 <style>
 
@@ -14,100 +14,131 @@
 }
 
 body{
-    background:#050816;
+    background:#000;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    overflow:hidden;
     font-family:Georgia, serif;
+    overflow:hidden;
 }
 
-.main{
-    display:flex;
-    align-items:center;
-    gap:35px;
-    z-index:10;
-}
-
-.photo-section{
+.container{
     position:relative;
+    width:95%;
+    max-width:900px;
+    background:#050505;
+    border-radius:25px;
+    padding:40px 20px;
+    text-align:center;
+    box-shadow:0 0 40px rgba(255,215,0,.25);
 }
 
-.birthday-photo{
-    width:380px;
-    height:650px;
-    object-fit:cover;
-    border-radius:30px;
-    border:3px solid gold;
-    box-shadow:
-        0 0 15px gold,
-        0 0 40px rgba(255,215,0,.35);
+/* Decorative balloons */
+
+.balloon{
+    position:absolute;
+    font-size:60px;
+    opacity:.9;
 }
+
+.left1{left:10px;top:80px;}
+.left2{left:35px;top:250px;}
+.left3{left:15px;bottom:100px;}
+
+.right1{right:10px;top:80px;}
+.right2{right:35px;top:250px;}
+.right3{right:15px;bottom:100px;}
+
+/* Title */
+
+.title-small{
+    color:white;
+    letter-spacing:10px;
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.title-big{
+    color:#d4af37;
+    font-size:70px;
+    font-family:cursive;
+    text-shadow:
+        0 0 10px #d4af37,
+        0 0 20px #d4af37,
+        0 0 35px #d4af37;
+    margin-bottom:25px;
+}
+
+.subtitle{
+    color:#d8d8d8;
+    font-style:italic;
+    margin-bottom:30px;
+    font-size:22px;
+}
+
+/* Photo */
+
+.photo{
+    width:280px;
+    height:280px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid #d4af37;
+    box-shadow:
+        0 0 15px #d4af37,
+        0 0 35px rgba(212,175,55,.6);
+}
+
+/* Wish */
 
 .message{
-    position:absolute;
-    left:50%;
-    bottom:25px;
-    transform:translateX(-50%);
-    width:85%;
+    margin-top:30px;
     color:white;
-    text-align:center;
     font-size:20px;
-    line-height:1.7;
-    text-shadow:
-        0 0 10px black,
-        0 0 20px black;
-    background:rgba(0,0,0,.35);
-    padding:15px;
-    border-radius:15px;
+    line-height:1.8;
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-.vertical{
-    color:white;
-    text-align:center;
-    font-size:95px;
-    font-weight:300;
-    line-height:1.05;
-    letter-spacing:4px;
-    text-shadow:
-        0 0 10px white,
-        0 0 20px white,
-        0 0 35px white;
+.gold{
+    color:#d4af37;
 }
 
-.divider{
-    width:2px;
-    height:650px;
-    background:white;
-    box-shadow:0 0 12px white;
-}
+/* Tiny sparkle */
 
 .star{
-    position:fixed;
-    color:white;
-    opacity:.4;
-    animation:twinkle 4s infinite alternate;
+    position:absolute;
+    color:#d4af37;
+    animation:blink 2s infinite alternate;
 }
 
-@keyframes twinkle{
-    from{
-        opacity:.2;
-    }
+@keyframes blink{
+    from{opacity:.3;}
     to{
-        opacity:.8;
-        text-shadow:0 0 10px white;
+        opacity:1;
+        text-shadow:0 0 12px #d4af37;
     }
 }
 
-@media(max-width:900px){
+@media(max-width:768px){
 
-    body{
-        overflow:auto;
+    .title-big{
+        font-size:48px;
     }
 
-    .main{
-        transform:scale(.75);
+    .photo{
+        width:220px;
+        height:220px;
+    }
+
+    .message{
+        font-size:17px;
+    }
+
+    .balloon{
+        font-size:40px;
     }
 }
 
@@ -116,67 +147,57 @@ body{
 
 <body>
 
-<div class="main">
+<div class="container">
 
-    <div class="photo-section">
+    <div class="balloon left1">🎈</div>
+    <div class="balloon left2">🎈</div>
+    <div class="balloon left3">🎈</div>
 
-        <img src="IMG_20260620_211807.jpg" class="birthday-photo">
+    <div class="balloon right1">🎈</div>
+    <div class="balloon right2">🎈</div>
+    <div class="balloon right3">🎈</div>
 
-        <div class="message">
+    <div class="title-small">HAPPY</div>
 
-            On your special day,<br><br>
+    <div class="title-big">Birthday</div>
 
-            I wish you a successful career,<br><br>
+    <div class="subtitle">Wishing You The Best</div>
 
-            a joyful heart,<br><br>
+    <img src="IMG_20260620_211807.jpg" class="photo">
 
-            a peaceful mind,<br><br>
+    <div class="message">
 
-            and a future brighter than you ever imagined.<br><br>
+        <span class="gold">On your special day,</span><br><br>
 
-            ✨ Happy Birthday ✨
+        I wish you a successful career, a joyful heart,
+        a peaceful mind, and a future brighter than you
+        ever imagined.<br><br>
 
-        </div>
+        May every dream turn into reality,
+        every effort bring success,
+        and every day bring happiness,
+        good health and unforgettable memories.
 
-    </div>
+        <br><br>
 
-    <div class="vertical">
-        H<br>
-        A<br>
-        P<br>
-        P<br>
-        Y
-    </div>
+        <span class="gold">✨ Happy Birthday ✨</span>
 
-    <div class="divider"></div>
-
-    <div class="vertical">
-        B<br>
-        I<br>
-        R<br>
-        T<br>
-        H<br>
-        D<br>
-        A<br>
-        Y
     </div>
 
 </div>
 
 <script>
 
-for(let i=0;i<25;i++){
+for(let i=0;i<30;i++){
 
     let star=document.createElement("div");
 
-    star.classList.add("star");
-
+    star.className="star";
     star.innerHTML="✦";
 
     star.style.left=Math.random()*100+"vw";
     star.style.top=Math.random()*100+"vh";
-    star.style.fontSize=(Math.random()*6+6)+"px";
-    star.style.animationDelay=Math.random()*4+"s";
+    star.style.fontSize=(Math.random()*10+8)+"px";
 
     document.body.appendChild(star);
 }
