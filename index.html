@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>--</title>
+<title>Happy Birthday</title>
 
 <style>
 
@@ -20,7 +20,7 @@ font-family:Georgia,serif;
 background:black;
 }
 
-/* BACKGROUND IMAGE (NO ZOOM) */
+/* STATIC BACKGROUND (NO MOVEMENT) */
 .bg{
 position:fixed;
 top:0;
@@ -30,7 +30,7 @@ height:100%;
 background:url('IMG_20260620_211807.jpg') center center/cover no-repeat;
 }
 
-/* DARK CINEMATIC OVERLAY */
+/* DARK OVERLAY */
 .overlay{
 position:fixed;
 top:0;
@@ -55,7 +55,7 @@ pointer-events:none;
 
 .content{
 position:absolute;
-bottom:30px;
+bottom:80px; /* MOVED UP */
 left:50%;
 transform:translateX(-50%);
 width:90%;
@@ -74,21 +74,10 @@ text-shadow:0 0 20px black;
 .birthday{
 font-size:80px;
 font-weight:bold;
-background:linear-gradient(
-180deg,
-#fff8c6,
-#ffd700,
-#ffb700,
-#b8860b
-);
-
+background:linear-gradient(180deg,#fff8c6,#ffd700,#ffb700,#b8860b);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-
-text-shadow:
-0 0 10px #FFD700,
-0 0 20px #FFD700,
-0 0 50px #FFD700;
+text-shadow:0 0 10px #FFD700,0 0 20px #FFD700,0 0 50px #FFD700;
 }
 
 .message{
@@ -98,8 +87,7 @@ font-size:20px;
 line-height:1.8;
 text-shadow:0 0 10px black;
 max-width:850px;
-margin-left:auto;
-margin-right:auto;
+margin:auto;
 }
 
 .music-btn{
@@ -139,20 +127,14 @@ animation:burst 2s linear forwards;
 }
 
 @keyframes burst{
-0%{
-transform:translate(0,0) scale(0);
-opacity:1;
-}
-100%{
-transform:translate(var(--x),var(--y)) scale(1.5);
-opacity:0;
-}
+0%{transform:translate(0,0) scale(0);opacity:1;}
+100%{transform:translate(var(--x),var(--y)) scale(1.5);opacity:0;}
 }
 
 @media(max-width:768px){
 .happy{font-size:20px;}
 .birthday{font-size:50px;}
-.message{font-size:16px;}
+.content{bottom:60px;}
 }
 
 </style>
@@ -168,20 +150,15 @@ opacity:0;
 
 <div class="happy">✨ HAPPY ✨</div>
 <div class="birthday">BIRTHDAY мαиυ </div>
-<br><br>
+
 <div class="message">
-On your special day 🥀,
+🌸On your special day,<br><br>
 I wish you a successful career,
-a joyful heart,
+a joyful heart 🥀,
 a peaceful mind,
 and a future brighter than you ever imagined🌸.<br><br>
 
-May every dream become reality,
-every effort bring success,
-and every day bring happiness,
-good health and unforgettable memories.<br><br>
-
-🥂 σи¢є gαιαи Happy Birthday 🥂
+✨ σи¢є αgαιи Happy Birthday 🥂
 </div>
 
 <button class="music-btn" onclick="playMusic()">
