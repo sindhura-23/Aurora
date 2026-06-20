@@ -26,7 +26,7 @@ body{
 .main{
     display:flex;
     align-items:center;
-    gap:40px;
+    gap:35px;
     z-index:10;
 }
 
@@ -41,51 +41,53 @@ body{
     border-radius:30px;
     border:3px solid gold;
     box-shadow:
-        0 0 20px gold,
-        0 0 50px rgba(255,215,0,.4);
+        0 0 15px gold,
+        0 0 40px rgba(255,215,0,.35);
 }
 
 .message{
     position:absolute;
     left:50%;
-    bottom:35px;
+    bottom:25px;
     transform:translateX(-50%);
     width:85%;
-    color:#ffe8a3;
+    color:white;
     text-align:center;
-    font-size:22px;
-    line-height:1.6;
+    font-size:20px;
+    line-height:1.7;
     text-shadow:
         0 0 10px black,
         0 0 20px black;
-    background:rgba(0,0,0,0.25);
+    background:rgba(0,0,0,.35);
     padding:15px;
     border-radius:15px;
 }
 
 .vertical{
-    color:#ffd700;
+    color:white;
     text-align:center;
-    font-size:80px;
+    font-size:95px;
+    font-weight:300;
     line-height:1.05;
+    letter-spacing:4px;
     text-shadow:
-        0 0 10px gold,
-        0 0 25px gold,
-        0 0 40px gold;
+        0 0 10px white,
+        0 0 20px white,
+        0 0 35px white;
 }
 
 .divider{
     width:2px;
     height:650px;
-    background:gold;
-    box-shadow:0 0 15px gold;
+    background:white;
+    box-shadow:0 0 12px white;
 }
 
 .star{
     position:fixed;
-    color:#ffd700;
-    opacity:0.6;
-    animation:twinkle 3s infinite alternate;
+    color:white;
+    opacity:.4;
+    animation:twinkle 4s infinite alternate;
 }
 
 @keyframes twinkle{
@@ -93,12 +95,16 @@ body{
         opacity:.2;
     }
     to{
-        opacity:1;
-        text-shadow:0 0 12px gold;
+        opacity:.8;
+        text-shadow:0 0 10px white;
     }
 }
 
 @media(max-width:900px){
+
+    body{
+        overflow:auto;
+    }
 
     .main{
         transform:scale(.75);
@@ -128,8 +134,7 @@ body{
 
             and a future brighter than you ever imagined.<br><br>
 
-            ✨ Wishing you endless happiness,
-            success and beautiful memories ✨
+            ✨ Happy Birthday ✨
 
         </div>
 
@@ -160,18 +165,18 @@ body{
 
 <script>
 
-for(let i=0;i<80;i++){
+for(let i=0;i<25;i++){
 
     let star=document.createElement("div");
 
     star.classList.add("star");
 
-    star.innerHTML="✨";
+    star.innerHTML="✦";
 
     star.style.left=Math.random()*100+"vw";
     star.style.top=Math.random()*100+"vh";
-    star.style.fontSize=(Math.random()*12+10)+"px";
-    star.style.animationDelay=Math.random()*3+"s";
+    star.style.fontSize=(Math.random()*6+6)+"px";
+    star.style.animationDelay=Math.random()*4+"s";
 
     document.body.appendChild(star);
 }
