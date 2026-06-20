@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✨ 𝗛𝗮𝗽𝗽𝘆 𝗕𝗶𝗿𝘁𝗵𝗱𝗮𝘆 ✨</title>
+<title>✨ Happy Birthday ✨</title>
 
 <style>
 
@@ -14,11 +15,11 @@
 }
 
 body{
-    background: radial-gradient(circle at top,
-                #1b2735 0%,
-                #090a0f 60%,
-                #000000 100%);
-    height:100vh;
+    background:radial-gradient(circle at top,
+    #1b2735 0%,
+    #090a0f 60%,
+    #000000 100%);
+    min-height:100vh;
     overflow:hidden;
     display:flex;
     justify-content:center;
@@ -33,6 +34,39 @@ body{
     z-index:10;
 }
 
+.photo-container{
+    position:relative;
+    display:inline-block;
+    margin-bottom:25px;
+    opacity:0;
+    animation:showText 2s forwards;
+}
+
+.birthday-photo{
+    width:250px;
+    height:250px;
+    object-fit:cover;
+    border-radius:25px;
+    border:4px solid gold;
+    box-shadow:
+        0 0 20px gold,
+        0 0 40px gold,
+        0 0 80px rgba(255,215,0,0.6);
+}
+
+.photo-text{
+    position:absolute;
+    bottom:15px;
+    left:50%;
+    transform:translateX(-50%);
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    text-shadow:
+        0 0 10px black,
+        0 0 20px black;
+}
+
 .birthday{
     font-size:4rem;
     font-weight:300;
@@ -44,44 +78,44 @@ body{
         0 0 20px #ffd700,
         0 0 40px #ffec8b,
         0 0 60px #fff8dc;
-    animation:glow 2s ease-in-out infinite alternate;
+    animation:glow 2s infinite alternate;
 }
 
 @keyframes glow{
     from{
         text-shadow:
-            0 0 10px #ffd700,
-            0 0 20px #ffd700,
-            0 0 40px #ffec8b;
+        0 0 10px #ffd700,
+        0 0 20px #ffd700,
+        0 0 40px #ffec8b;
     }
     to{
         text-shadow:
-            0 0 20px #ffd700,
-            0 0 40px #ffd700,
-            0 0 80px #fff8dc;
+        0 0 20px #ffd700,
+        0 0 40px #ffd700,
+        0 0 80px #fff8dc;
     }
 }
 
 .line{
     opacity:0;
     color:white;
-    font-size:1.6rem;
+    font-size:1.5rem;
     font-weight:300;
     letter-spacing:2px;
-    margin:18px 0;
+    margin:15px 0;
     animation:showText 2s forwards;
 }
 
-.line:nth-child(1){animation-delay:1s;}
-.line:nth-child(2){animation-delay:4s;}
-.line:nth-child(3){animation-delay:7s;}
-.line:nth-child(4){animation-delay:10s;}
-.line:nth-child(5){animation-delay:13s;}
+.line:nth-child(2){animation-delay:2s;}
+.line:nth-child(3){animation-delay:5s;}
+.line:nth-child(4){animation-delay:8s;}
+.line:nth-child(5){animation-delay:11s;}
+.line:nth-child(6){animation-delay:14s;}
 
 @keyframes showText{
     from{
         opacity:0;
-        transform:translateY(40px);
+        transform:translateY(30px);
     }
     to{
         opacity:1;
@@ -104,17 +138,9 @@ body{
     }
 }
 
-.stars{
-    position:absolute;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-}
-
 .star{
     position:absolute;
     color:white;
-    font-size:12px;
     animation:twinkle 2s infinite alternate;
 }
 
@@ -127,12 +153,9 @@ body{
 }
 
 .footer{
-    margin-top:30px;
     color:#ffd700;
+    margin-top:20px;
     font-size:1.2rem;
-    opacity:0;
-    animation:showText 2s forwards;
-    animation-delay:16s;
 }
 
 </style>
@@ -140,9 +163,12 @@ body{
 
 <body>
 
-<div class="stars"></div>
-
 <div class="container">
+
+<div class="photo-container">
+    <img src="IMG_20260620_211807.jpg" class="birthday-photo">
+    <div class="photo-text">Birthday 👑✨</div>
+</div>
 
 <div class="line birthday">
 ✨ HAPPY BIRTHDAY ✨
@@ -157,14 +183,15 @@ I wish you a successful career,
 </div>
 
 <div class="line">
-a joyful heart and a peaceful mind,
+a joyful heart,
+a peaceful mind,
 </div>
 
 <div class="line">
 and a future brighter than you ever imagined.
 </div>
 
-<div class="footer">
+<div class="line footer">
 🎉 Wishing you endless happiness, success and beautiful memories 🎊
 </div>
 
@@ -172,8 +199,7 @@ and a future brighter than you ever imagined.
 
 <script>
 
-// Floating celebration emojis
-const emojis = ["🎉","🎊","✨","⭐","💫","🎂","🎈","🥳"];
+const emojis=["🎉","🎊","✨","⭐","💫","🎈","🥳"];
 
 for(let i=0;i<100;i++){
 
@@ -189,9 +215,6 @@ emoji.style.animationDelay=Math.random()*5+"s";
 document.body.appendChild(emoji);
 }
 
-// Twinkling stars
-const starsContainer=document.querySelector(".stars");
-
 for(let i=0;i<150;i++){
 
 let star=document.createElement("div");
@@ -199,11 +222,11 @@ star.classList.add("star");
 
 star.innerHTML="✦";
 
-star.style.left=Math.random()*100+"%";
-star.style.top=Math.random()*100+"%";
+star.style.left=Math.random()*100+"vw";
+star.style.top=Math.random()*100+"vh";
 star.style.animationDelay=Math.random()*3+"s";
 
-starsContainer.appendChild(star);
+document.body.appendChild(star);
 }
 
 </script>
