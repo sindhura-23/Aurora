@@ -20,6 +20,7 @@ font-family:Georgia,serif;
 background:black;
 }
 
+/* BACKGROUND IMAGE WITH ZOOM EFFECT */
 .bg{
 position:fixed;
 top:0;
@@ -27,20 +28,28 @@ left:0;
 width:100%;
 height:100%;
 background:url('IMG_20260620_211807.jpg') center center/cover no-repeat;
+animation:zoomIn 20s ease-in-out infinite alternate;
+transform:scale(1);
 }
 
+/* DARK OVERLAY (STRONGER) */
 .overlay{
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:linear-gradient(
-to top,
-rgba(0,0,0,.45),
-rgba(0,0,0,.15),
-rgba(0,0,0,.05)
-);
+background:rgba(0,0,0,0.65);
+}
+
+/* ZOOM ANIMATION */
+@keyframes zoomIn{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.12);
+}
 }
 
 .frame{
@@ -70,11 +79,7 @@ font-size:28px;
 font-weight:bold;
 letter-spacing:10px;
 color:white;
-text-shadow:
-0 2px 0 #999,
-0 4px 0 #888,
-0 6px 0 #777,
-0 0 20px white;
+text-shadow:0 0 20px black;
 }
 
 .birthday{
@@ -131,20 +136,10 @@ animation:floatUp linear infinite;
 }
 
 @keyframes floatUp{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:.4;
-}
-80%{
-opacity:.8;
-}
-100%{
-transform:translateY(-120px);
-opacity:0;
-}
+0%{transform:translateY(100vh);opacity:0;}
+20%{opacity:.4;}
+80%{opacity:.8;}
+100%{transform:translateY(-120px);opacity:0;}
 }
 
 .firework{
@@ -166,19 +161,9 @@ opacity:0;
 }
 
 @media(max-width:768px){
-
-.happy{
-font-size:20px;
-}
-
-.birthday{
-font-size:50px;
-}
-
-.message{
-font-size:16px;
-}
-
+.happy{font-size:20px;}
+.birthday{font-size:50px;}
+.message{font-size:16px;}
 }
 
 </style>
@@ -192,30 +177,22 @@ font-size:16px;
 
 <div class="content">
 
-<div class="happy">🎉 HAPPY 🎉</div>
-
-<div class="birthday">BIRTHDAY</div>
+<div class="happy">✨ HAPPY ✨</div>
+<div class="birthday">BIRTHDAY 𝗠𝗮𝗻𝘂 ✨</div>
 
 <div class="message">
-
 On your special day,<br><br>
-
 I wish you a successful career,
 a joyful heart,
 a peaceful mind,
-and a future brighter than you ever imagined.
-
-<br><br>
+and a future brighter than you ever imagined🌸.<br><br>
 
 May every dream become reality,
 every effort bring success,
 and every day bring happiness,
-good health and unforgettable memories.
+good health and unforgettable memories.<br><br>
 
-<br><br>
-
-✨ Happy Birthday ✨
-
+🌸 Once again Happy Birthday 🥂
 </div>
 
 <button class="music-btn" onclick="playMusic()">
@@ -245,24 +222,15 @@ let cy=Math.random()*window.innerHeight*0.5;
 for(let i=0;i<40;i++){
 
 let p=document.createElement("div");
-
 p.className="firework";
 
 let size=Math.random()*6+3;
-
 p.style.width=size+"px";
 p.style.height=size+"px";
 
-const colors=[
-"#FFD700",
-"#FF4444",
-"#00FFFF",
-"#FFFFFF",
-"#FF66FF"
-];
+const colors=["#FFD700","#FF4444","#00FFFF","#FFFFFF","#FF66FF"];
 
-p.style.background=
-colors[Math.floor(Math.random()*colors.length)];
+p.style.background=colors[Math.floor(Math.random()*colors.length)];
 
 p.style.left=cx+"px";
 p.style.top=cy+"px";
@@ -270,18 +238,12 @@ p.style.top=cy+"px";
 let angle=(Math.PI*2*i)/40;
 let distance=80+Math.random()*100;
 
-p.style.setProperty('--x',
-Math.cos(angle)*distance+'px');
-
-p.style.setProperty('--y',
-Math.sin(angle)*distance+'px');
+p.style.setProperty('--x',Math.cos(angle)*distance+'px');
+p.style.setProperty('--y',Math.sin(angle)*distance+'px');
 
 document.body.appendChild(p);
 
-setTimeout(()=>{
-p.remove();
-},2000);
-
+setTimeout(()=>p.remove(),2000);
 }
 
 },1200);
@@ -289,9 +251,7 @@ p.remove();
 }
 
 for(let i=0;i<12;i++){
-
 let sparkle=document.createElement("div");
-
 sparkle.className="sparkle";
 sparkle.innerHTML="✨";
 
@@ -300,7 +260,6 @@ sparkle.style.animationDuration=(Math.random()*8+12)+"s";
 sparkle.style.animationDelay=Math.random()*5+"s";
 
 document.body.appendChild(sparkle);
-
 }
 
 </script>
