@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 🎂</title>
 
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(135deg,#ff6b81,#ff4757,#ff9ff3);
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    font-family:Arial,sans-serif;
+}
+
+.container{
+    color:white;
+    z-index:10;
+    width:90%;
+}
+
+.line{
+    opacity:0;
+    font-size:2rem;
+    font-weight:bold;
+    margin:15px 0;
+    animation:showText 2s forwards;
+}
+
+.line:nth-child(1){animation-delay:1s;}
+.line:nth-child(2){animation-delay:4s;}
+.line:nth-child(3){animation-delay:7s;}
+.line:nth-child(4){animation-delay:10s;}
+.line:nth-child(5){animation-delay:13s;}
+
+@keyframes showText{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.emoji{
+    position:absolute;
+    font-size:30px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+
+.birthday{
+    color:#ff0000;
+    font-size:3rem;
+    text-shadow:0 0 10px white,
+                0 0 20px yellow,
+                0 0 40px gold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="line birthday">
+✨✨ HAPPY BIRTHDAY ✨✨
+</div>
+
+<div class="line">
+On your special day,
+</div>
+
+<div class="line">
+I wish you a successful career,
+</div>
+
+<div class="line">
+a joyful heart and a peaceful mind,
+</div>
+
+<div class="line">
+and a future brighter than you ever imagined.
+✨🎉🎊
+</div>
+
+</div>
+
+<script>
+
+const emojis = ["🎉","🎊","✨","⭐","🎈"];
+
+for(let i=0;i<80;i++){
+
+let emoji=document.createElement("div");
+emoji.classList.add("emoji");
+
+emoji.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+
+emoji.style.left=Math.random()*100+"vw";
+emoji.style.animationDuration=(Math.random()*5+5)+"s";
+emoji.style.animationDelay=Math.random()*5+"s";
+
+document.body.appendChild(emoji);
+
+}
+</script>
+
+</body>
+</html>
